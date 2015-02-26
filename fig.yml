@@ -1,0 +1,38 @@
+elasticsearch:
+  image: deviantony/elk-elasticsearch
+  ports:
+    - "9200:9200"
+
+kibana3:
+  image: deviantony/elk-kibana
+  ports:
+    - "8080:80"
+  links:
+    - elasticsearch
+
+mongodb:
+  image: dockerfile/mongodb
+  volumes:
+    - mongodb:/data/db 
+  ports:
+    - "27017:27017"
+  command: mongod --smallfiles
+
+#logstash:
+#  image: deviantony/elk-logstash
+#  volumes:
+#    - logstash-conf:/etc/logstash/conf.d
+#    - logs:/tmp/logs
+#  ports:
+#    - "5001:5001"
+#    - "5000:5000"
+#  links:
+#    - elasticsearch
+
+
+#kibana4:
+#  image: deviantony/elk-kibana:kibana4b2
+#  ports:
+#    - "5601:5601"
+#  links:
+#    - elasticsearch

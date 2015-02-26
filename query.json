@@ -1,0 +1,30 @@
+{
+  "query": {
+    "filtered": {
+      "filter": {
+        "bool": {
+            "should": [
+                { 
+                    "geo_distance": {
+                        "distance": "300km", 
+                        "geo.coor": { 
+                            "lat":37.0535 ,
+                            "lon": -2.2625
+                        }
+                    }
+                },
+                {
+                    "bool": {
+                        "must": [
+                        { "term": { "homies": [ "54ef75cd4dcecdb06192b5fc"] } }
+                    ]
+                    }
+                }
+                
+                
+            ]
+        }
+      }
+    }
+  }
+}

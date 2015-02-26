@@ -1,0 +1,31 @@
+{
+    "from" : 0, "size" : 2,
+  
+  "query": {
+
+    "filtered": {
+
+      "filter": {
+          "bool": {
+              "must": [
+                  {
+                      "geo_distance": {
+                        "distance": "250km", 
+                        "geo.coor": { 
+                            "lat":37.417 ,
+                            "lon": -3.1152
+                        }
+ 
+                    }
+                  },
+                  {
+                      "term": { "scope.nbhd": false }
+                  }
+                  ]
+          }
+          
+                    
+      }
+    }
+  }
+}

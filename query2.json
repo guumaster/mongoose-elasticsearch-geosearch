@@ -1,0 +1,34 @@
+{
+    "from" : 0, "size" : 2,
+  
+  "query": {
+
+    "filtered": {
+
+      "filter": {
+        "bool": {
+            "should": [
+                {
+                    "bool": {
+                        "must": [
+                        { "term": { "homies": [ "54ef75cd4dcecdb06192b5fc"] } },
+                        { "range": { "year": { "gte": 2014} } }
+                    ]
+                    }
+                },
+                { 
+                    "geo_distance": {
+                        "distance": "5km", 
+                        "geo.coor": { 
+                            "lat":37.417 ,
+                            "lon": -3.1152
+                        }
+                    }
+                }
+
+            ]
+        }
+      }
+    }
+  }
+}
